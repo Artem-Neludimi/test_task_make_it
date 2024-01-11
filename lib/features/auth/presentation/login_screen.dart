@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_make_it/core/extensions/context_extensions.dart';
+import 'package:test_task_make_it/core/extensions/string_extensions.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,14 +15,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Log In'),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+          children: [
+            Text('Log In'.hardcoded(), style: context.textTheme.headlineMedium),
           ],
         ),
       ),

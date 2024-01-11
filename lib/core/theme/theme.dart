@@ -15,6 +15,11 @@ final themeData = ThemeData(
     onSurface: Colors.black,
   ),
   appBarTheme: const AppBarTheme(
-    elevation: 5,
+    elevation: 3,
+    titleTextStyle: TextStyle(
+      color: Colors.white,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
   ),
 );
