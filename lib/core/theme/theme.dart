@@ -97,6 +97,13 @@ TextTheme _getTextTheme(ColorScheme colorScheme) {
       fontSize: 12,
       color: labelColor,
     ),
+
+    // Display
+    displayLarge: TextStyle(),
+    displayMedium: TextStyle(),
+    displaySmall: TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
   );
 
   return textTheme;
