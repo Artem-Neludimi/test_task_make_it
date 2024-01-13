@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:test_task_make_it/core/navigation/app_router.dart';
+import 'package:test_task_make_it/features/auth/logic/auth/auth_bloc.dart';
 
 import 'core/theme/theme.dart';
 
@@ -14,10 +16,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: themeData,
-      routerConfig: router,
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: themeData,
+        routerConfig: router,
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 final themeData = ThemeData(
   colorScheme: _getColorScheme(),
+  textTheme: _getTextTheme(_getColorScheme()),
   appBarTheme: const AppBarTheme(
     elevation: 3,
     titleTextStyle: TextStyle(
@@ -10,7 +11,42 @@ final themeData = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
-  textTheme: _getTextTheme(_getColorScheme()),
+  textSelectionTheme: const TextSelectionThemeData(
+    cursorColor: Colors.black,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.white,
+      backgroundColor: const Color.fromRGBO(106, 77, 186, 1),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+    ),
+  ),
+  inputDecorationTheme: const InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(6)),
+      borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(6)),
+      borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(6)),
+      borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(6)),
+      borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+    disabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(6)),
+      borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+  ),
 );
 
 ColorScheme _getColorScheme() {
@@ -18,6 +54,8 @@ ColorScheme _getColorScheme() {
     primary: Colors.white,
     onPrimary: Colors.black,
     secondary: Colors.white,
+    tertiary: Colors.grey,
+    primaryContainer: Color.fromRGBO(243, 243, 243, 1),
   );
 }
 
