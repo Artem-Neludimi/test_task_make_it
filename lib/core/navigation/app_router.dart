@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
+import 'package:test_task_make_it/core/di/nested_navigation_di.dart';
 import 'package:test_task_make_it/features/auth/presentation/screens/login_screen.dart';
-import 'package:test_task_make_it/features/creating_notifications/presentation/screens/creating_notification_screen.dart';
+import 'package:test_task_make_it/features/notifications/presentation/screens/add_new_notification.dart';
 import 'package:test_task_make_it/features/notifications/presentation/screens/notifications_screen.dart';
 
 import '../../features/splash/splash_screen.dart';
 
 final _routerKey = GlobalKey<NavigatorState>();
+final _notificationsKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: _routerKey,
@@ -21,15 +24,21 @@ final GoRouter router = GoRouter(
       path: AppRoute.login.path,
       builder: (context, state) => const LoginScreen(),
     ),
-    GoRoute(
-      parentNavigatorKey: _routerKey,
-      path: AppRoute.notifications.path,
-      builder: (context, state) => const NotificationsScreen(),
-    ),
-    GoRoute(
-      parentNavigatorKey: _routerKey,
-      path: AppRoute.creatingNotification.path,
-      builder: (context, state) => const CreatingNotificationScreen(),
+    ShellRoute(
+      navigatorKey: _notificationsKey,
+      builder: (context, state, child) => NotificationsDi(child: child),
+      routes: [
+        GoRoute(
+          parentNavigatorKey: _notificationsKey,
+          path: AppRoute.notifications.path,
+          builder: (context, state) => const NotificationsScreen(),
+        ),
+        GoRoute(
+          parentNavigatorKey: _notificationsKey,
+          path: AppRoute.addNewNotification.path,
+          builder: (context, state) => const AddNewNotificationScreen(),
+        ),
+      ],
     ),
   ],
 );
@@ -38,7 +47,7 @@ enum AppRoute {
   splash('/'),
   login('/login'),
   notifications('/notifications'),
-  creatingNotification('/creating_notification'),
+  addNewNotification('/add-new-notification'),
   ;
 
   const AppRoute(this.path);

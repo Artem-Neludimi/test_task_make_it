@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:test_task_make_it/core/extensions/string_extensions.dart';
 import 'package:test_task_make_it/features/notifications/logic/controllers/notifications_controllers.dart';
 
+import '../widgets/first_tab_view.dart';
 import '../widgets/notification_tabs.dart';
+import '../widgets/second_tab_view.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -54,17 +56,9 @@ class _BodyState extends State<_Body> with SingleTickerProviderStateMixin {
     return TabBarView(
       controller: controllers.tabController,
       physics: const NeverScrollableScrollPhysics(),
-      children: [
-        Container(
-          child: const Center(
-            child: Text('Tab 1 Content'),
-          ),
-        ),
-        Container(
-          child: const Center(
-            child: Text('Tab 2 Content'),
-          ),
-        ),
+      children: const [
+        FirstTabView(),
+        SecondTabView(),
       ],
     );
   }

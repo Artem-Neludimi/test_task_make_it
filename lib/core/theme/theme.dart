@@ -6,6 +6,7 @@ final themeData = ThemeData(
   colorScheme: _getColorScheme(),
   textTheme: _getTextTheme(_getColorScheme()),
   appBarTheme: const AppBarTheme(
+    foregroundColor: Colors.white,
     color: Colors.black,
     elevation: 3,
     titleTextStyle: TextStyle(
