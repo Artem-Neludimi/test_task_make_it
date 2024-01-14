@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+const purple = Color.fromRGBO(106, 77, 186, 1);
+
 final themeData = ThemeData(
   colorScheme: _getColorScheme(),
   textTheme: _getTextTheme(_getColorScheme()),
   appBarTheme: const AppBarTheme(
+    color: Colors.black,
     elevation: 3,
     titleTextStyle: TextStyle(
       color: Colors.white,
@@ -17,7 +20,7 @@ final themeData = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       foregroundColor: Colors.white,
-      backgroundColor: const Color.fromRGBO(106, 77, 186, 1),
+      backgroundColor: purple,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -55,7 +58,9 @@ ColorScheme _getColorScheme() {
     onPrimary: Colors.black,
     secondary: Colors.white,
     tertiary: Colors.grey,
+    onTertiary: purple,
     primaryContainer: Color.fromRGBO(243, 243, 243, 1),
+    error: Color.fromRGBO(244, 53, 40, 1),
   );
 }
 

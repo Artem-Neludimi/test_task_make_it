@@ -30,9 +30,8 @@ class LoginScreen extends StatelessWidget {
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthPassed) {
-            AppRoute.creatingNotification.go(context);
-          }
-          if (state is AuthNotConfirmed) {
+            AppRoute.notifications.go(context);
+          } else if (state is AuthNotConfirmed) {
             context.showSnackBar('The time is wrong. Try again.'.hardcoded());
           }
         },
@@ -41,7 +40,6 @@ class LoginScreen extends StatelessWidget {
             Expanded(
               child: Scaffold(
                 appBar: AppBar(
-                  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
                   title: Text('Log In'.hardcoded()),
                 ),
                 body: const _Body(),
@@ -75,7 +73,7 @@ class _ConfirmButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            context.read<AuthBloc>().add(AuthEventConfirm(controllers.time));
+            context.read<AuthBloc>().add(AuthEventConfirm(controllers.formattedTimeHhMm));
           },
           child: BlocSelector<AuthBloc, AuthState, bool>(
             selector: (state) {

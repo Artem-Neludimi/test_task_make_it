@@ -18,7 +18,7 @@ class AuthControllers {
     focusNode4.dispose();
   }
 
-  String get time => '${controller1.text}${controller2.text}:${controller3.text}${controller4.text}';
+  String get formattedTimeHhMm => '${controller1.text}${controller2.text}:${controller3.text}${controller4.text}';
 
   final controller1 = TextEditingController();
   final controller2 = TextEditingController();

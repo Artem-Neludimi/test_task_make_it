@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_task_make_it/features/auth/presentation/screens/login_screen.dart';
 import 'package:test_task_make_it/features/creating_notifications/presentation/screens/creating_notification_screen.dart';
+import 'package:test_task_make_it/features/notifications/presentation/screens/notifications_screen.dart';
 
 import '../../features/splash/splash_screen.dart';
 
@@ -22,6 +23,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       parentNavigatorKey: _routerKey,
+      path: AppRoute.notifications.path,
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _routerKey,
       path: AppRoute.creatingNotification.path,
       builder: (context, state) => const CreatingNotificationScreen(),
     ),
@@ -31,6 +37,7 @@ final GoRouter router = GoRouter(
 enum AppRoute {
   splash('/'),
   login('/login'),
+  notifications('/notifications'),
   creatingNotification('/creating_notification'),
   ;
 
